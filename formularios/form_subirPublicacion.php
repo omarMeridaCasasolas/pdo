@@ -54,12 +54,12 @@
                     $tituloConvocatoria="Problemmas al crear convocatoria!!";
                     $color="danger";
                 }
-                header("Location:../CRUD_publicaciones.php");
+                header("Location:../paginas/CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
                 $tituloConvocatoria="Problemmas al crear convocatoria!!";
                 $color="danger";
-                header("Location:../CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
+                header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
             }
         }
 
