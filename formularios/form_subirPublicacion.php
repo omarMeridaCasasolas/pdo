@@ -47,12 +47,19 @@
                 $res=$convocatoria->agregarConvocatoria($nombreDeConvocatoria,$fechaActual,$direccionBaseDeDatos,$descripcionConvocatoria,$FechaHoraExpiracion,$tipoConvocatoria,$departamento,$gestion,$autor);
                 if($res){
                     echo "se subio correctamente el archivo";
+                    $tituloConvocatoria="Convocatoria creada satisfactoriamente!!";
+                    $color="success";
                 }else{
                     echo "Error al subir los archivos";
+                    $tituloConvocatoria="Problemmas al crear convocatoria!!";
+                    $color="danger";
                 }
                 header("Location:../CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
+                $tituloConvocatoria="Problemmas al crear convocatoria!!";
+                $color="danger";
+                header("Location:../CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
             }
         }
 
