@@ -23,7 +23,7 @@
                 try {
                     date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
-                include_once("modelo/convocatoria.php");
+                include_once("convocatoria.php");
                 $convocatoria= new  Convocatoria();
                 $consulta=$convocatoria->mostrarConvocatoriaFechaAscendente($fechaActual);
                 foreach($consulta as $elemento){
