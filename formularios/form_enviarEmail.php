@@ -22,7 +22,7 @@
             echo $response->headers();
             echo $response->body();
             echo "Aqui!!";
-            //header("Location:../paginas/login.php?dato=x");
+            header("Location:../paginas/login.php?dato=x");
         }else{
             header("Location:../paginas/login.php?dato=y ");
         }
