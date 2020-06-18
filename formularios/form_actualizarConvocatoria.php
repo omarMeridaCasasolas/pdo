@@ -37,6 +37,7 @@
                     echo "Error al procesar la actualizacion";
                 }
                 $convocatoria->cerrarConexion();
+                header("Location:../paginas/CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
             }
