@@ -17,9 +17,10 @@
             header("Location:CRUD_publicaciones.php");
         }
         $convocatoria->cerrarConexion();
+        header("../paginas/Location:CRUD_publicaciones.php");
     }else{
         echo "Error";
-        header("Location:CRUD_publicaciones.php");
+        header("../paginas/Location:CRUD_publicaciones.php");
     }
 
 
