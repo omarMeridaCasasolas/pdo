@@ -45,7 +45,7 @@
                 include_once("../modelo/convocatoria.php");
                 $convocatoria = new Convocatoria();
                 $res=$convocatoria->agregarConvocatoria($nombreDeConvocatoria,$fechaActual,$direccionBaseDeDatos,$descripcionConvocatoria,$FechaHoraExpiracion,$tipoConvocatoria,$departamento,$gestion,$autor);
-                if($res){
+                /*if($res){
                     echo "se subio correctamente el archivo";
                     $tituloConvocatoria="Convocatoria creada satisfactoriamente!!";
                     $color="success";
@@ -55,11 +55,14 @@
                     $color="danger";
                 }
                 header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
+		*/
+		header("Location:../paginas/CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
                 $tituloConvocatoria="Problemmas al crear convocatoria!!";
                 $color="danger";
-                header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
+                //header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
+		header("Location:../paginas/CRUD_publicaciones.php");
             }
         }
 
