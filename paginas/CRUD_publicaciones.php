@@ -27,7 +27,16 @@
 <body>
     <header class="bg-info w-100 p-4">
         <h3 class="font-italic"><i class="fas fa-users"></i>  
-            <?php 
+               <?php 
+                if(isset($_GET['tit']) && isset($_GET['color'])){?>
+                    <div class='alert alert <?php echo $_GET['color'];?>  alert-dissmisible fade show' role='alert'>
+                        <?php echo $_GET['tit'];?>
+                        <button type='button' class='close' data-dismiss='alert' aria-label='close'></button>
+                         <span aria-hidden='true'>&times;</span>
+                    </div>
+                    <?php
+                }
+                /////////////////////
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
                     if($sexo=="Hombre"){
