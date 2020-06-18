@@ -33,6 +33,7 @@
                     echo "<p class='float-right'>".$elemento['fecha']."</p>";
                     echo "<hr>";
                 }
+                $convocatoria->cerrarConexion();
             ?>
         </div>
     </section>
