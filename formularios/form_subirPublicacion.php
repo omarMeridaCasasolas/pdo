@@ -50,7 +50,7 @@
                 }else{
                     echo "Error al subir los archivos";
                 }
-                header("Location:CRUD_publicaciones.php");
+                header("Location:../CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
             }
