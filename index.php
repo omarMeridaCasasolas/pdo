@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidad Mayor de San simon</title>
-    <link rel="stylesheet" href="Vista/bootstrap.css">
-    <link rel="stylesheet" href="Vista/header.css">
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <link rel="stylesheet" href="style/myStyle.css">
 </head>
 <body>
     <?php
@@ -16,14 +16,13 @@
         }
     ?>
     <?php include("plantillas/header.php");?>   
-    <!--Convocatorias-->
     <section>
         <div class="d-block w-75 mx-auto">
             <h2 class="text-center" >Publicaciones de Convocatorias</h2>
             <?php
                 date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
-                include_once("Modelo/convocatoria.php");
+                include_once("modelo/convocatoria.php");
                 $convocatoria= new  Convocatoria();
                 $consulta=$convocatoria->mostrarConvocatoriaFechaAscendente($fechaActual);
                 foreach($consulta as $elemento){
