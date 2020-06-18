@@ -42,15 +42,6 @@
                 $codigoFecha=date("Ymdhis");
 
                 $direccionBaseDeDatos=$enlace;
-
-                require_once('conexion.php');
-                $conn=conectarBaseDeDatos();
-
-		        echo "$nombreDeConvocatoria.<br>";
-                echo "$fechaActual.<br>";
-                echo "$direccionBaseDeDatos.<br>";
-                echo "$descripcionConvocatoria.<br>";
-                echo "$FechaHoraExpiracion.<br>";
                 include_once("../modelo/convocatoria.php");
                 $convocatoria = new Convocatoria();
                 $res=$convocatoria->agregarConvocatoria($nombreDeConvocatoria,$fechaActual,$direccionBaseDeDatos,$descripcionConvocatoria,$FechaHoraExpiracion,$tipoConvocatoria,$departamento,$gestion,$autor);
@@ -59,16 +50,7 @@
                 }else{
                     echo "Error al subir los archivos";
                 }
-                /*if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion,creador)
-                VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion','$tipoConvocatoria','$departamento','$gestion','$autor')")){
-                    echo "Exito";
-                }else{
-			     echo "No se ha podido conectar: ".pg_last_error();
-                } 
-                */
-                //header("Location:CRUD_publicaciones.php");
-
-                // fin de mi codigo
+                header("Location:CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
             }
