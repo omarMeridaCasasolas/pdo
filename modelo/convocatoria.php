@@ -78,7 +78,7 @@
             VALUES (:nomConvocatoria,:fechaActual,:direccionBaseDeDatos,:descripcion,TRUE,:fechaHoraExpiracion,:tipoConvocatoria,:departamento,:gestion,:autor)";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $resultado=$sentenceSQL->execute(array(":nomConvocatoria"=>$nombreDeConvocatoria,":fechaActual"=>$fechaActual,":direccionBaseDeDatos"=>$direccionBaseDeDatos,":descripcion"=>$descripcion,
-            ":fechaHoraExpiracion"=>$fechaHoraExpiracion,":tipoConvocatoria"=>$tipoConvocatoria,":departamento"=>$departamento,":gestion"=>$gestion,":autor"=>$autor));
+            ":fechaHoraExpiracion"=>$FechaHoraExpiracion,":tipoConvocatoria"=>$tipoConvocatoria,":departamento"=>$departamento,":gestion"=>$gestion,":autor"=>$autor));
             $sentenceSQL->closeCursor();
             return $resultado;
         }

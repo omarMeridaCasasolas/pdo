@@ -32,14 +32,22 @@
                 $fechaActual=date("Y-m-d H:i:s");
                 $res=$convocatoria->actualizarConvocatoria($id,$_POST['titulo'],$_POST['descripcion'],$enlace,$fechaActual,$_POST['lista1'],$_POST['lista2'],$_POST['lista3'],$fechaHoraExpiracion);
                 if($res){
-                    echo "Se actualizo correctamente";
+                    echo "se subio correctamente el archivo";
+                    $tituloConvocatoria="Convocatoria creada satisfactoriamente!!";
+                    $color="success";
                 }else{
-                    echo "Error al procesar la actualizacion";
+                    echo "Error al subir los archivos";
+                    $tituloConvocatoria="Problemmas al crear convocatoria!!";
+                    $color="danger";
                 }
+
                 $convocatoria->cerrarConexion();
-                header("Location:../paginas/CRUD_publicaciones.php");
+
+                header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
             }catch(Exception $e) {
-                echo $e;
+                $tituloConvocatoria="Problemmas al crear convocatoria!!";
+                $color="danger";
+                header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
             }
         }
     }else{

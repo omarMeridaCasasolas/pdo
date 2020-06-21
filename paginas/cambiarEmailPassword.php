@@ -70,7 +70,7 @@
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
                 <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
-    </header>
+        </header>
 
     <form action="../formularios/form_actualizarDatos.php" method="post" class="container w-50 p-3 my-5 bg-dark text-white md w-75 sm w-100 ">
         <h1 class="text-center">Editar datos de Usuario</h1>

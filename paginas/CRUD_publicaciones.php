@@ -13,6 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/myStyle.css">
     <style type="text/css">
@@ -27,15 +30,8 @@
 <body>
     <header class="bg-info w-100 p-4">
         <h3 class="font-italic"><i class="fas fa-users"></i>  
-               <?php 
-                if(isset($_GET['tit']) && isset($_GET['color'])){?>
-                    <div class='alert alert <?php echo $_GET['color'];?>  alert-dissmisible fade show' role='alert'>
-                        <?php echo $_GET['tit'];?>
-                        <button type='button' class='close' data-dismiss='alert' aria-label='close'></button>
-                         <span aria-hidden='true'>&times;</span>
-                    </div>
-                    <?php
-                }
+            <?php
+                
                 /////////////////////
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
@@ -84,6 +80,18 @@
         <br>
         <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
     </header>
+    <?php
+                if(isset($_GET['tit']) && isset($_GET['color'])){ ?>
+
+                    <div class="container w-50 pt-2">
+                        <div class='alert alert-<?php echo $_GET['color'];?>  alert-dissmisible fade show' role='alert'>
+                            <?php echo $_GET['tit'];?>
+                            <button type='button' class='close' data-dismiss='alert' aria-label='close'><span aria-hidden='true'>&times;</span></button>
+            
+                        </div>
+                    </div>
+                <?php
+            }?>
     <main class='container w-75 mt-2'>
           <div class='table-responsive'>
             <table class='table table-hover'>
@@ -167,7 +175,6 @@
             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
         </div>
     </footer>
-
 </body>
 
 </html>

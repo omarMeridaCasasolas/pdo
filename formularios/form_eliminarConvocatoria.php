@@ -11,16 +11,16 @@
         $convocatoria= new Convocatoria;
         $res= $convocatoria->eliminarConvocatoria($id);
         if ($res) {
-            echo "Se elimino correctamente.\n";
+            echo "Se elimino correctamente<br>";
         }else{
             echo "error al eliminar archivo";
-            header("Location:CRUD_publicaciones.php");
+            header("Location:../paginas/CRUD_publicaciones.php");
         }
         $convocatoria->cerrarConexion();
-        header("../paginas/Location:CRUD_publicaciones.php");
+        header("Location:../paginas/CRUD_publicaciones.php");
     }else{
         echo "Error";
-        header("../paginas/Location:CRUD_publicaciones.php");
+        header("Location:../paginas/CRUD_publicaciones.php");
     }
 
 

@@ -91,12 +91,12 @@
             $sentenceSQL->closeCursor();
             return $res;
         }
-
         public function actualizarCorreoAdministrativo($nuevoCorreo, $correoAntiguo){
             $sql="UPDATE administrativo SET correo_administrativo = :nuevoCor WHERE UPPER(correo_administrativo) = UPPER(:correoAnt) ";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
-            $sentenceSQL->execute(array(":nuevoCor"=>$nuevoCorreo,":correoAnt"=>$correoAntiguo ));
+            $res=$sentenceSQL->execute(array(":nuevoCor"=>$nuevoCorreo,":correoAnt"=>$correoAntiguo ));
             $sentenceSQL->closeCursor();
+            return $res;
         }
     }
 ?>

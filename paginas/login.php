@@ -46,7 +46,7 @@
                 <label class="font-italic d-block p-1" for="loginCorreo">Correo Electronico</label>
                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="mail" name="IdUsuaario" id=""  autocomplete='off' id="loginCorreo" placeholder="Ejemplo@gmail.com">
                 <label class="font-italic d-block p-1" for="loginPass"> Contraseña</label>
-                <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="password" name="IdPassword" id="loginPass" pattern="^[a-z0-9_-]{3,30}" placeholder="****************" autocomplete='off'>
+                <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="password" name="IdPassword" id="loginPass"  pattern="[a-zA-Z0-9]{4,15}" placeholder="****************" autocomplete='off'>
                 <input type="submit" value="Entrar" class="btn btn-primary d-block mx-auto my-3">
                 <!--<a class="text-dark m-2" href="" id="btnSend">Reenviar contraseña a tu correo</a>   pattern="^[a-z0-9_-]{3,30}-->
             </form>

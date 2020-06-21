@@ -5,15 +5,28 @@
         echo "Error al autentificar";
         header("Location:../index.php?error=x");
     }
+    $fechaExpiracion=$_POST['fechaDeExpiracion'];
+    echo $fechaExpiracion."<br>";
+                $horaExpiracion=$_POST['horaDeExpiracion'];
+                echo $horaExpiracion."<br>";
+                $FechaHoraExpiracion= $fechaExpiracion." ".$horaExpiracion;
+                echo $FechaHoraExpiracion."<br>";
+                date_default_timezone_set('America/La_Paz');
+                $fechaActual=date("Y-m-d H:i:s");
+                if(empty($fechaExpiracion) || empty($horaExpiracion)){
+                    $FechaHoraExpiracion=date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 year"));
+                }
+                echo "=============================";
+                echo $FechaHoraExpiracion."<br>";
     // Agregar a Amazon Aws3
-    require('../vendor/autoload.php');
+    include_once('../vendor/autoload.php');
     // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
     $s3 = new Aws\S3\S3Client([
         'version'  => '2006-03-01',
         'region'   => 'us-east-2',
     ]);
+    
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
             // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
@@ -45,7 +58,7 @@
                 include_once("../modelo/convocatoria.php");
                 $convocatoria = new Convocatoria();
                 $res=$convocatoria->agregarConvocatoria($nombreDeConvocatoria,$fechaActual,$direccionBaseDeDatos,$descripcionConvocatoria,$FechaHoraExpiracion,$tipoConvocatoria,$departamento,$gestion,$autor);
-                /*if($res){
+                if($res){
                     echo "se subio correctamente el archivo";
                     $tituloConvocatoria="Convocatoria creada satisfactoriamente!!";
                     $color="success";
@@ -55,14 +68,11 @@
                     $color="danger";
                 }
                 header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
-		*/
-		header("Location:../paginas/CRUD_publicaciones.php");
             }catch(Exception $e) {
                 echo $e;
                 $tituloConvocatoria="Problemmas al crear convocatoria!!";
                 $color="danger";
-                //header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
-		header("Location:../paginas/CRUD_publicaciones.php");
+                header("Location:../paginas/CRUD_publicaciones.php?tit=".$tituloConvocatoria."&color=".$color);
             }
         }
 
@@ -110,5 +120,5 @@ function eliminar_acentos($cadena){
 
 		return $cadena;
 	}
-
+    
 ?>
